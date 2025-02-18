@@ -83,11 +83,7 @@ List trucks available in inventory:
 
 # **Contributing 🤝**
 
-Contributions are welcome! Feel free to:
-📌 Fork this repository
-📌 Open an issue for suggestions or bugs
-📌 Submit a pull request
-
+Contributions are welcome! Feel free to fork this repository, open an issue for suggestions or bugs or submit a pull request.
 
 # **Connect with Me 🔗**
 📧 Email:zainababdulrehman329@gmail.com
