@@ -1,7 +1,7 @@
 # truck-sales-management-db
 The Truck Sales and Manufacturing System is a MySQL-based database project that manages truck sales, manufacturing processes, and inventory. It ensures efficient tracking of orders, invoices, production batches, and truck parts, providing a structured approach to managing truck manufacturing operations.
 
-## **Features ✨**
+# **Features ✨**
 
 ✅ Customer Management – Stores customer details and contact information.  
 
@@ -14,7 +14,7 @@ The Truck Sales and Manufacturing System is a MySQL-based database project that 
 ✅ Data Relationships – Uses foreign keys to enforce referential integrity.  
 
 
-## **Database Schema & Tables 📊**
+# **Database Schema & Tables 📊**
 
 The system consists of multiple interconnected tables, including:
 
@@ -34,11 +34,13 @@ The system consists of multiple interconnected tables, including:
 
 **PRODPLAN** – Maintains production timelines and costs.
 
-## **Installation & Setup 🚀**
+# **Installation & Setup 🚀**
 
 **Step 1: Install MySQL**
 
-Ensure you have MySQL Server installed. You can download it from:
+Ensure you have MySQL Server installed.  
+You can download it from:  
+
 🔗 MySQL Official Website
 
 **Step 2: Import the Database**
@@ -50,33 +52,36 @@ Ensure you have MySQL Server installed. You can download it from:
 
 **Run:**
 
-USE AVI;
-SHOW TABLES;
-SELECT * FROM CUSTOMER;
-SELECT * FROM TRUCK;
+USE AVI;  
+
+SHOW TABLES;  
+
+SELECT * FROM CUSTOMER;  
+
+SELECT * FROM TRUCK;  
+
 
 This will confirm successful installation.
 
-## **SQL Queries & Reports 📝**
+# **SQL Queries & Reports 📝**
 
 Some useful queries included in the project:
-	•	View all customers:
+• View all customers:
 
-SELECT * FROM CUSTOMER;
+	•	SELECT * FROM CUSTOMER;
 
-
-	•	Get sales reports by month:
-
-SELECT MONTH(ADDel) AS SaleMonth, SUM(SalePrice) AS TotalRevenue 
-FROM Invoice 
-GROUP BY SaleMonth;
+Get sales reports by month:
 
 
-	•	List trucks available in inventory:
+	•	SELECT MONTH(ADDel) AS SaleMonth, SUM(SalePrice) AS TotalRevenue FROM Invoice GROUP BY SaleMonth;
 
-SELECT Model, Color, Specs FROM TRUCK;
 
-**Contributing 🤝**
+List trucks available in inventory:
+
+	•	SELECT Model, Color, Specs FROM TRUCK;
+
+
+# **Contributing 🤝**
 
 Contributions are welcome! Feel free to:
 📌 Fork this repository
@@ -84,7 +89,7 @@ Contributions are welcome! Feel free to:
 📌 Submit a pull request
 
 
-**Connect with Me 🔗**
+# **Connect with Me 🔗**
 📧 Email:zainababdulrehman329@gmail.com
 
 
