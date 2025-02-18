@@ -3,11 +3,16 @@ The Truck Sales and Manufacturing System is a MySQL-based database project that 
 
 ### **Features ✨**
 
-✅ Customer Management – Stores customer details and contact information.
-✅ Order Processing – Tracks sales, invoices, and batch orders.
-✅ Manufacturing & Inventory – Manages truck production, parts, and stock.
-✅ Production Planning – Handles manufacturing stages and costs.
-✅ Data Relationships – Uses foreign keys to enforce referential integrity.
+✅ Customer Management – Stores customer details and contact information.  
+
+✅ Order Processing – Tracks sales, invoices, and batch orders.  
+
+✅ Manufacturing & Inventory – Manages truck production, parts, and stock.  
+
+✅ Production Planning – Handles manufacturing stages and costs.  
+
+✅ Data Relationships – Uses foreign keys to enforce referential integrity.  
+
 
 ### **Database Schema & Tables 📊**
 
