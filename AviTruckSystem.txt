@@ -1,0 +1,279 @@
+CREATE DATABASE AVI;
+USE AVI;
+
+CREATE table CUSTOMER(
+ID INT PRIMARY KEY,
+CNAME char(30) NOT NULL,
+ADDRESS varchar(50) NOT NULL,
+CONTACT  INT(20) NOT NULL
+);
+
+INSERT INTO CUSTOMER (ID, CNAME, ADDRESS, CONTACT) VALUES
+(1, 'Ahmed Khan', 'Riyadh, Saudi Arabia','1234567890'),
+(2, 'Fatima Ali', 'Jeddah, Saudi Arabia','234567890'),
+(3, 'Mohammed Hassan', 'Mecca, Saudi Arabia','34567890'),
+(4, 'Sara Abdullah', 'Medina, Saudi Arabia','45678901'),
+(5, 'Yousef Mahmoud', 'Dammam, Saudi Arabia','5678910'),
+(6, 'Layla Ahmed', 'Tabuk, Saudi Arabia','3456789'),
+(7, 'Nasser Al-Mansour', 'Al-Khobar, Saudi Arabia', '67891023'),
+(8, 'Aisha Hamid', 'Buraidah, Saudi Arabia','7891023'),
+(9, 'Khalid Saleh', 'Hail, Saudi Arabia', '8910234'),
+(10, 'Huda Omar', 'Taif, Saudi Arabia','9102345'),
+(11, 'Mansoor Ibrahim', 'Najran, Saudi Arabia','1023456'),
+(12, 'Noura Abdulaziz', 'Abha, Saudi Arabia','1101223'),
+(13, 'Abdullah Malik', 'Yanbu, Saudi Arabia',' 1201567'),
+(14, 'Mona Khalid', 'Al Jubail, Saudi Arabia','1357278'),
+(15, 'Ziad Ahmed', 'Khobar, Saudi Arabia',' 41226837');
+
+select * from customer;
+
+CREATE TABLE Invoice(
+    SaleID INT PRIMARY KEY,
+    SalePrice float NOT NULL,
+    ADDel DATE,
+    CustID INT NOT NULL,
+    TrackingID varchar(10) not null,
+    MrkDeptID int not null
+);
+
+INSERT INTO Invoice (SaleID, SalePrice, ADDel, CustID, TrackingID, MrkDeptID) VALUES
+(1, 100.0, '2023-01-01', 1, 'TRK001', 1),
+(2, 150.0, '2023-01-05', 2, 'TRK002', 2),
+(3, 200.0, '2023-01-10', 3, 'TRK003', 3),
+(4, 120.0, '2023-01-15', 4, 'TRK004', 1),
+(5, 180.0, '2023-01-20', 5, 'TRK005', 2),
+(6, 90.0, '2023-01-25', 6, 'TRK006', 3),
+(7, 210.0, '2023-02-01', 7, 'TRK007', 1),
+(8, 170.0, '2023-02-05', 8, 'TRK008', 2),
+(9, 130.0, '2023-02-10', 9, 'TRK009', 3),
+(10, 160.0, '2023-02-15', 10, 'TRK010', 1),
+(11, 140.0, '2023-02-20', 11, 'TRK011', 2),
+(12, 190.0, '2023-02-25', 12, 'TRK012', 3),
+(13, 110.0, '2023-03-01', 13, 'TRK013', 1),
+(14, 250.0, '2023-03-05', 14, 'TRK014', 2),
+(15, 220.0, '2023-03-10', 15, 'TRK015', 3);
+
+TRUNCATE TABLE INVOICE;
+SELECT *FROM INVOICE;
+CREATE TABLE BtORDER(
+  TrackingID VARCHAR(10) PRIMARY KEY,
+  CustID INT not null,
+  BatchNo INT NOT NULL,
+  EDD DATE
+);
+
+INSERT INTO BtORDER (TrackingID, CustID, BatchNo, EDD) VALUES
+('TRK001', 1, 101, '2023-01-01'),
+('TRK002', 2, 102, '2023-01-02'),
+('TRK003', 3, 103, '2023-01-03'),
+('TRK004', 4, 104, '2023-01-04'),
+('TRK005', 5, 105, '2023-01-05'),
+('TRK006', 6, 106, '2023-01-06'),
+('TRK007', 7, 107, '2023-01-07'),
+('TRK008', 8, 108, '2023-01-08'),
+('TRK009', 9, 109, '2023-01-09'),
+('TRK010', 10, 110, '2023-01-10'),
+('TRK011', 11, 111, '2023-01-11'),
+('TRK012', 12, 112, '2023-01-12'),
+('TRK013', 13, 113, '2023-01-13'),
+('TRK014', 14, 114, '2023-01-14'),
+('TRK015', 15, 115, '2023-01-15');
+
+CREATE TABLE BATCH(
+BtNo INT Primary Key,
+TruckCount INT CHECK (TruckCount >=2 && TruckCount <=30),
+ChNo VARCHAR(20) NOT NULL
+);
+
+INSERT INTO BATCH (BtNo, TruckCount, ChNo) VALUES
+(101, 25, 'CHN101'),
+(102, 20, 'CHN102'),
+(103, 30, 'CHN103'),
+(104, 22, 'CHN104'),
+(105, 28, 'CHN105'),
+(106, 27, 'CHN106'),
+(107, 18, 'CHN107'),
+(108, 29, 'CHN108'),
+(109, 26, 'CHN109'),
+(110, 24, 'CHN110'),
+(111, 21, 'CHN111'),
+(112, 23, 'CHN112'),
+(113, 30, 'CHN113'),
+(114, 19, 'CHN114'),
+(115, 30, 'CHN115');
+
+CREATE TABLE TRUCK(
+ID INT not null,
+VIN varchar (20) Primary key, 
+KEY (id, VIN),
+Model varchar (20) NOT NULL,
+Color varchar(15),
+Specs  varchar(150),
+Variants varchar(150),
+BTNO INT NOT NULL,
+MFGID INT NOT NULL
+);
+
+INSERT INTO TRUCK (ID, VIN, Model, Color, Specs, Variants, BTNO, MFGID) VALUES
+(1, 'CHN101', 'Model 1', 'Red', NULL, 'Variants 1', 101, 1),
+(2, 'CHN102', 'Model 2', 'Blue', 'Specs 2', NULL, 102, 3),
+(3, 'CHN103', 'Model 3', 'Green', 'Specs 3', NULL, 103, 3),
+(4, 'CHN104', 'Model 4', 'Yellow', 'Specs 4', 'Variants 4', 104, 4),
+(5, 'CHN105', 'Model 5', 'Black', 'Specs 5', 'Variants 5', 105, 1),
+(6, 'CHN106', 'Model 6', 'White', NULL, NULL, 106, 2),
+(7, 'CHN107', 'Model 7', 'Silver', NULL, 'Variants 7', 107, 3),
+(8, 'CHN108', 'Model 8', 'Gold',NULL , 'Variants 8', 108, 4),
+(9, 'CHN109', 'Model 9', 'Brown', NULL, NULL, 109, 4),
+(10, 'CHN110', 'Model 10', 'Orange', NULL, NULL, 110, 3),
+(11, 'CHN111', 'Model 11', 'Purple', NULL, NULL, 111, 2),
+(12, 'CHN112', 'Model 12', 'Gray', NULL, 'Variants 12', 112, 1),
+(13, 'CHN113', 'Model 13', 'Cyan', NULL, NULL, 113, 1),
+(14, 'CHN114', 'Model 14', 'Magenta', NULL, NULL, 114, 1),
+(15, 'CHN115', 'Model 15', 'Lime', NULL, NULL, 115, 3);
+TRUNCATE TABLE TRUCK;
+select *from truck;
+CREATE TABLE Manufacturer(
+    ID int PRIMARY KEY,
+    Name char(30) NOT NULL,
+    Loc varchar(40) NOT NULL,
+    Contact bigint,
+    ProdCapYr bigint DEFAULT 1600,
+    CHNO VARCHAR(20) not null,
+    PACK INT
+);
+
+
+INSERT INTO Manufacturer (ID, Name, Loc, Contact, CHNO ,Pack) VALUES
+(1, 'Renault', 'Jeddah, Saudi Arabia', 1234567890, 'CHN101',1),
+(2, 'Honda', 'KAEC, Saudi Arabia', 2345678901, 'CHN111',2),
+(3, 'Volvo', 'Riyadh, Saudi Arabia', 3456789012, 'CHN102',3),
+(4, 'Cat', 'Jeddah, Saudi Arabia', 4567890123, 'CHN109',4);
+TRUNCATE TABLE Manufacturer;
+SELECT *from Manufacturer;
+
+create table TruckParts(
+PACKGno INT not null,
+PRIMARY KEY (PACKGno),
+PartName varchar (50) not null,
+Quantity int DEFAULT 1,
+Price float NOT NULL,
+MFGID INT NOT NULL
+);
+
+
+INSERT INTO TruckParts (PACKGno, TruckID, PartName, Quantity, Price, MFGID) VALUES
+(1, 101, 'Chassis Rails and Frame', 100, 500.0, 1),
+(2, 101, 'Engine', 50, 2000.0, 2),
+(3, 101, 'Steering System', 75, 800.0, 3),
+(4, 102, 'Exhaust and Cooling Setup', 90, 700.0, 4),
+(5, 102, 'Braking System', 80, 900.0, 1),
+(6, 103, 'Heavy-Duty Clutch', 70, 1000.0, 2),
+(7, 103, 'Gear-box', 60, 1200.0, 3),
+(8, 104, 'Shafts', 85, 600.0, 4),
+(9, 105, 'Shock Absorbers', 95, 450.0, 1),
+(10, 106, 'Tires and Wheels', 110, 850.0, 2),
+(11, 107, 'Fuel and Cargo Area Setup', 120, 950.0, 3),
+(12, 108, 'Cab Setup', 100, 1500.0, 4),
+(13, 109, 'Frames and Body Panels', 105, 700.0, 1),
+(14, 110, 'Steering System', 75, 800.0, 2),
+(15, 111, 'Exhaust and Cooling Setup', 90, 700.0, 3);
+TRUNCATE TABLE truckparts ;
+SELECT * FROM truckparts;
+
+CREATE TABLE ProdPlan( 
+BTNO INT not null,
+CHNO VARCHAR (20) not null,
+Stg1 DATE ,
+Stg2 DATE ,
+Stg3 DATE ,
+Stg4 DATE ,
+Stg5 DATE,
+Stg6 DATE ,
+Stg7 DATE,
+Stg8 DATE ,
+Stg9 DATE ,
+Stg10 DATE ,
+PRIMARY KEY (Stg1),
+ProdCost float
+);
+
+INSERT INTO ProdPlan (BTNO, CHNO, Stg1, Stg2, Stg3, Stg4, Stg5, Stg6, Stg7, Stg8, Stg9, Stg10, ProdCost) VALUES
+(101, 'CHN101', '2023-01-01', '2023-01-05', '2023-01-10', '2023-01-15', '2023-01-20', '2023-01-25', '2023-02-01', '2023-02-05', '2023-02-10', '2023-02-15', 25000.0),
+(102, 'CHN102', '2023-01-02', '2023-01-06', '2023-01-11', '2023-01-16', '2023-01-21', '2023-01-26', '2023-02-02', '2023-02-06', '2023-02-11', '2023-02-16', 26000.0),
+(103, 'CHN103', '2023-01-03', '2023-01-07', '2023-01-12', '2023-01-17', '2023-01-22', '2023-01-27', '2023-02-03', '2023-02-07', '2023-02-12', '2023-02-17', 27000.0),
+(104, 'CHN104', '2023-01-04', '2023-01-08', '2023-01-13', '2023-01-18', '2023-01-23', '2023-01-28', '2023-02-04', '2023-02-08', '2023-02-13', '2023-02-18', 28000.0),
+(105, 'CHN105', '2023-01-05', '2023-01-09', '2023-01-14', '2023-01-19', '2023-01-24', '2023-01-29', '2023-02-05', '2023-02-09', '2023-02-14', '2023-02-19', 29000.0),
+(106, 'CHN106', '2023-01-06', '2023-01-10', '2023-01-15', '2023-01-20', '2023-01-25', '2023-01-30', '2023-02-06', '2023-02-10', '2023-02-15', '2023-02-20', 30000.0),
+(107, 'CHN107', '2023-01-07', '2023-01-11', '2023-01-16', '2023-01-21', '2023-01-26', '2023-01-31', '2023-02-07', '2023-02-11', '2023-02-16', '2023-02-21', 31000.0),
+(108, 'CHN108', '2023-01-08', '2023-01-12', '2023-01-17', '2023-01-22', '2023-01-27', '2023-02-01', '2023-02-08', '2023-02-12', '2023-02-17', '2023-02-22', 32000.0),
+(109, 'CHN109', '2023-01-09', '2023-01-13', '2023-01-18', '2023-01-23', '2023-01-28', '2023-02-02', '2023-02-09', '2023-02-13', '2023-02-18', '2023-02-23', 33000.0),
+(110, 'CHN110', '2023-01-10', '2023-01-14', '2023-01-19', '2023-01-24', '2023-01-29', '2023-02-03', '2023-02-10', '2023-02-14', '2023-02-19', '2023-02-24', 34000.0),
+(111, 'CHN111', '2023-01-11', '2023-01-15', '2023-01-20', '2023-01-25', '2023-01-30', '2023-02-04', '2023-02-11', '2023-02-15', '2023-02-20', '2023-02-25', 35000.0),
+(112, 'CHN112', '2023-01-12', '2023-01-16', '2023-01-21', '2023-01-26', '2023-01-31', '2023-02-05', '2023-02-12', '2023-02-16', '2023-02-21', '2023-02-26', 36000.0),
+(113, 'CHN113', '2023-01-13', '2023-01-17', '2023-01-22', '2023-01-27', '2023-02-01', '2023-02-06', '2023-02-13', '2023-02-17', '2023-02-22', '2023-02-27', 37000.0),
+(114, 'CHN114', '2023-01-14', '2023-01-18', '2023-01-23', '2023-01-28', '2023-02-02', '2023-02-07', '2023-02-14', '2023-02-18', '2023-02-23', '2023-02-28', 38000.0),
+(115, 'CHN115', '2023-01-15', '2023-01-19', '2023-01-24', '2023-01-29', '2023-02-03', '2023-02-08', '2023-02-15', '2023-02-19', '2023-02-24', '2023-03-01', 39000.0);
+
+TRUNCATE TABLE prodplan;
+
+select * from prodplan;
+select * from manufacturer;
+
+use AVI ;
+ 
+ -- adding  fks in invoice table 
+ALTER TABLE Invoice 
+ADD CONSTRAINT fk_custid
+foreign Key (CustID) references CUSTOMER(ID);
+
+ALTER TABLE Invoice 
+ADD CONSTRAINT fk_tracking
+FOREIGN KEY (TrackingID) REFERENCES BtORDER(TrackingID);
+
+-- adding fks in order table
+ALTER TABLE BtORDER
+ADD CONSTRAINT fk_cust
+foreign key (CustID) references CUSTOMER (ID);
+
+ALTER TABLE BtORDER
+ADD CONSTRAINT fk_btno
+foreign key (BatchNo) references BATCH(BtNo);
+
+-- adding fks in batch
+ALTER TABLE BATCH
+ADD CONSTRAINT fk_chno
+FOREIGN KEY (ChNo) references Truck(VIN);
+
+-- adding fks in truck table
+ALTER TABLE TRUCK
+ADD CONSTRAINT fk_batchno
+FOREIGN KEY (BTNO) REFERENCES BATCH(BtNo);
+
+ALTER TABLE TRUCK
+ADD CONSTRAINT fk_mfgid
+FOREIGN KEY (MFGID) REFERENCES manufacturer(ID);
+
+-- adding fks in manufacturer
+ALTER TABLE Manufacturer
+ADD CONSTRAINT fk_vin
+FOREIGN KEY(CHNO) REFERENCES TRUCK(VIN);
+
+ALTER TABLE Manufacturer
+ADD CONSTRAINT fk_pack
+fOREIGN KEY(PACK) REFERENCES truckparts(PACKGno);
+
+-- adding fks in truckparts
+ALTER TABLE truckparts
+ADD CONSTRAINT fk_id
+FOREIGN KEY(MFGID) REFERENCES Manufacturer(ID);
+
+-- adding fks in prodplan
+ALTER TABLE prodplan
+ADD CONSTRAINT fk_bno
+Foreign Key (BTNO) REFERENCES BATCH(BtNo);
+
+ ALTER TABLE prodplan
+ADD CONSTRAINT fk_chassis
+FOREIGN KEY(CHNO) REFERENCES TRUCK(VIN);
+
+
