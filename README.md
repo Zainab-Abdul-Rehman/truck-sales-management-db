@@ -44,22 +44,18 @@ You can download it from:
 🔗 MySQL Official Website
 
 **Step 2: Import the Database**
-	1.	Open MySQL Workbench or any SQL client.
-	2.	Copy and paste the SQL script (truck_sales_management.sql).
-	3.	Run the script to create the database and tables.
+	1.	Open MySQL Workbench or any SQL client.  
+	2.	Copy and paste the SQL script (truck_sales_management.sql).  
+	3.	Run the script to create the database and tables.  
 
 **Step 3: Verify Database Setup**
 
 **Run:**
 
 USE AVI;  
-
 SHOW TABLES;  
-
 SELECT * FROM CUSTOMER;  
-
 SELECT * FROM TRUCK;  
-
 
 This will confirm successful installation.
 
@@ -72,14 +68,11 @@ Some useful queries included in the project:
 
 Get sales reports by month:
 
-
 	•	SELECT MONTH(ADDel) AS SaleMonth, SUM(SalePrice) AS TotalRevenue FROM Invoice GROUP BY SaleMonth;
-
 
 List trucks available in inventory:
 
 	•	SELECT Model, Color, Specs FROM TRUCK;
-
 
 # **Contributing 🤝**
 
