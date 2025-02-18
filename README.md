@@ -43,7 +43,7 @@ You can download it from:
 
 🔗 MySQL Official Website
 
-**Step 2: Import the Database**
+**Step 2: Import the Database**  
 	1.	Open MySQL Workbench or any SQL client.  
 	2.	Copy and paste the SQL script (truck_sales_management.sql).  
 	3.	Run the script to create the database and tables.  
