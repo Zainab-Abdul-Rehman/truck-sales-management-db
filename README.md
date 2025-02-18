@@ -34,3 +34,59 @@ The system consists of multiple interconnected tables, including:
 
 **PRODPLAN** – Maintains production timelines and costs.
 
+## **Installation & Setup 🚀**
+
+**Step 1: Install MySQL**
+
+Ensure you have MySQL Server installed. You can download it from:
+🔗 MySQL Official Website
+
+**Step 2: Import the Database**
+	1.	Open MySQL Workbench or any SQL client.
+	2.	Copy and paste the SQL script (truck_sales_management.sql).
+	3.	Run the script to create the database and tables.
+
+**Step 3: Verify Database Setup**
+
+**Run:**
+
+USE AVI;
+SHOW TABLES;
+SELECT * FROM CUSTOMER;
+SELECT * FROM TRUCK;
+
+This will confirm successful installation.
+
+## **SQL Queries & Reports 📝**
+
+Some useful queries included in the project:
+	•	View all customers:
+
+SELECT * FROM CUSTOMER;
+
+
+	•	Get sales reports by month:
+
+SELECT MONTH(ADDel) AS SaleMonth, SUM(SalePrice) AS TotalRevenue 
+FROM Invoice 
+GROUP BY SaleMonth;
+
+
+	•	List trucks available in inventory:
+
+SELECT Model, Color, Specs FROM TRUCK;
+
+**Contributing 🤝**
+
+Contributions are welcome! Feel free to:
+📌 Fork this repository
+📌 Open an issue for suggestions or bugs
+📌 Submit a pull request
+
+
+**Connect with Me 🔗**
+📧 Email:zainababdulrehman329@gmail.com
+
+
+
+
