@@ -1,4 +1,4 @@
-# truck-sales-management-db
+# Truck-Sales-Management-db
 The Truck Sales and Manufacturing System is a MySQL-based database project that manages truck sales, manufacturing processes, and inventory. It ensures efficient tracking of orders, invoices, production batches, and truck parts, providing a structured approach to managing truck manufacturing operations.
 
 # **Features ✨**
@@ -80,7 +80,7 @@ List trucks available in inventory:
 Contributions are welcome! Feel free to fork this repository, open an issue for suggestions or bugs or submit a pull request.
 
 # **Connect with Me 🔗**
-📧 Email:zainababdulrehman329@gmail.com
+📧 Email: zainababdulrehman329@gmail.com
 
 
 
